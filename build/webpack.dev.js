@@ -1,73 +1,51 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack');
+const merge = require('webpack-merge');
 const { VueLoaderPlugin } = require('vue-loader');
+const webpackBaseConfig = require('./webpack.base.config.js');
+const webpack = require('webpack');
 
-module.exports = {
-    mode: 'development',
-    stats: {
-        modules: false,
-        children: false
-    },
-    devServer: {
-        open: true,
-        host: '0,0,0,0',
-        overlay: true
-    },
-    resolve: {
-        extensions: ['.js', '.vue', '.scss', 'css'],
-        alias: {
-            vue: 'vue/dist/vue.esm.js',
-            '@': resolve('src')
-        }
-    },
-    module: {
-        rules: [
-            {
-                test: /\.vue$/,
-                use: [
-                    {
-                        loader: 'vue-loader',
-                        options: {
-                            compilerOptions: {
-                                preserveWhitespace: false
-                            }
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: 'babel-loader'
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'postcss-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            paths: [path.resolve(__dirname, 'node_modules')]
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(ttf|svg)$/,
-                loader: 'url-loader'
-            }
-        ]
-    },
-    plugins: [
-        new VueLoaderPlugin(),
-        new ProgressBarPlugin(),
-        new HtmlWebpackPlugin({
-            inject: true,
-            filename: 'index.html',
-            template: path.join(__dirname, '../examples/index.html')
-        })
-    ]
-};
+function resolve(dir) {
+  return path.resolve(__dirname, '..', dir);
+}
+
+module.exports = merge(webpackBaseConfig, {
+  mode: 'development',
+
+  devtool: 'eval-source-map',
+
+  devServer: {
+    open: true,
+    host: '127.0.0.1',
+    port: '8888',
+    overlay: true,
+    hot: true,
+    historyApiFallback: true
+  },
+
+  entry: {
+    main: resolve('examples/main')
+  },
+
+  output: {
+    path: resolve('examples/dist'),
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js'
+  },
+
+  resolve: {
+    alias: {
+      sui: resolve('src/index.js')
+    }
+  },
+
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: 'index.html',
+      template: resolve('examples/index.html')
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+});
