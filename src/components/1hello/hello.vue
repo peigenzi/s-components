@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2
-      class="yellow"
+      class="hello__yellow"
       data-name="h2"
     >hello ui</h2>
     <slot>this is slot</slot>

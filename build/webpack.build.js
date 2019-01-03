@@ -1,19 +1,20 @@
 const path = require('path');
-const config = require('./webpack.dev');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const webpackBaseConfig = require('./webpack.base.config');
 
-const isMinify = process.argv.indexOf('-p') !== -1;
-
-delete config.devServer;
-
-module.exports = Object.assign(config, {
+module.exports = merge(webpackBaseConfig, {
   mode: 'production',
+
+  entry: {
+    main: path.resolve(__dirname, '../src/index.js')
+  },
+
   output: {
-    path: path.join(__dirname, '../lib'),
-    library: '',
+    path: path.resolve(__dirname, '../dist'),
+    library: 'sui',
     libraryTarget: 'umd',
-    filename: isMinify ? '[name].min.js' : '[name].js',
-    umdNameDefine: true,
-    globalObject: 'this'
+    filename: 'sui.js'
   },
   externals: {
     vue: {
@@ -22,9 +23,5 @@ module.exports = Object.assign(config, {
       commonjs2: 'vue',
       amd: 'vue'
     }
-  },
-  performance: false,
-  optimization: {
-    minimize: isMinify
   }
 });

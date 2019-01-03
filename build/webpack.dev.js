@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const { VueLoaderPlugin } = require('vue-loader');
 const webpackBaseConfig = require('./webpack.base.config.js');
 const webpack = require('webpack');
 
@@ -40,7 +39,6 @@ module.exports = merge(webpackBaseConfig, {
   },
 
   plugins: [
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       filename: 'index.html',
