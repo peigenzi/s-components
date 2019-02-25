@@ -1,26 +1,35 @@
-// import Hello from './components/1hello';
-let arr = [12, 3];
-console.log(new Set(arr))
+import Hello from './components/1hello';
+import Button from './components/button';
 
-// const components = {
-//   Hello
-// };
+const version = '0.0.1';
 
-// const install = function(Vue, opts = {}) {
-//   if (install.installed) {
-//     return;
-//   }
+const components = {
+  Hello,
+  Button
+};
 
-//   Object.keys(components).forEach(k => {
-//     let name = `s-${k.toLocaleLowerCase()}`;
-//     Vue.component(name, components[k]);
-//   });
-// };
+const install = function(Vue, opts = {}) {
+  if (install.installed) {
+    return;
+  }
 
-// if (typeof window !== 'undefined' && window.Vue) {
-//   install(window.Vue);
-// }
+  Object.keys(components).forEach(k => {
+    let name = `s-${k.toLocaleLowerCase()}`;
+    console.log(`注册组件${name}`)
+    Vue.component(name, components[k]);
+  });
+};
 
-// export default {
-//   install
-// };
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
+
+export {
+  install,
+  version,
+  button
+};
+
+export default {
+  install
+}

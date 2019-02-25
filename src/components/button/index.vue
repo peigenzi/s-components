@@ -1,0 +1,55 @@
+<template>
+  <component
+    :is="tag"
+    :type="type"
+    :disabled="disabled"
+    class="s-button"
+    :class="[
+      's-button--' + type,
+      's-button--' + size,
+      {
+        's-button--disabled': disabled,
+        's-button--loading': loading,
+        's-button--block': block
+      }
+    ]"
+    @click="onClick"
+  >
+    <span class="s-button__text">
+      <slot>{{text}}</slot>
+    </span>
+  </component>
+</template>
+
+<script>
+export default {
+  name: "button",
+
+  props: {
+    tag: {
+      type: String,
+      default: "button"
+    },
+    type: {
+      type: String,
+      default: "default"
+    },
+    size: {
+      type: String,
+      default: "normal"
+    },
+    disabled: Boolean,
+    loading: Boolean,
+    block: Boolean,
+    text: String
+  },
+
+  methods: {
+    onClick(e) {
+      if (!this.loading && !this.disabled) {
+        this.$emit("click", e);
+      }
+    }
+  }
+};
+</script>

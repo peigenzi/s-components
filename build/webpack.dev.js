@@ -14,7 +14,7 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'eval-source-map',
 
   devServer: {
-    open: true,
+    // open: true,
     host: '127.0.0.1',
     port: '8888',
     overlay: true,
@@ -32,11 +32,11 @@ module.exports = merge(webpackBaseConfig, {
     chunkFilename: '[name].chunk.js'
   },
 
-  resolve: {
-    alias: {
-      sui: resolve('src/index.js')
-    }
-  },
+  // resolve: {
+  //   alias: {
+  //     sui: resolve('dist/sui.js')
+  //   }
+  // },
 
   plugins: [
     new HtmlWebpackPlugin({

@@ -14,8 +14,10 @@ module.exports = merge(webpackBaseConfig, {
     path: path.resolve(__dirname, '../dist'),
     library: 'sui',
     libraryTarget: 'umd',
-    filename: 'sui.js'
+    filename: 'sui.js',
+    umdNamedDefine: true
   },
+
   externals: {
     vue: {
       root: 'Vue',

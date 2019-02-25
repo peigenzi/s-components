@@ -4,7 +4,7 @@
       class="hello__yellow"
       data-name="h2"
     >hello ui</h2>
-    <slot>this is slot</slot>
+    <slot name="header">this is slot555gog</slot>
   </div>
 </template>
 
