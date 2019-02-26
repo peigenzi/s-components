@@ -11,7 +11,7 @@
   -webkit-appearance: none;
 
   &::before {
-    content: '';
+    content: ' ';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -87,8 +87,9 @@
   }
 
   &--disabled {
-    color: $button-disabled-color;
-    background-color: $button-disabled-background-color;
-    border: 1px solid $button-disabled-border-color;
+    // color: $button-disabled-color;
+    // background-color: $button-disabled-background-color;
+    // border: 1px solid $button-disabled-border-color;
+    opacity: .4;
   }
 }

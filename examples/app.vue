@@ -1,16 +1,15 @@
 <template>
-  <div>
-    <h1>sui</h1>
+  <div class="wrap">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
 <style scoped>
-
+.wrap {
+  background: #fafafa;
+}
 </style>

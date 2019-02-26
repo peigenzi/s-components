@@ -16,6 +16,10 @@ const router = new VueRouter({
     {
       path: '/hello',
       component: resolve => require(['./routers/1hello.vue'], resolve)
+    },
+    {
+      path: '/button',
+      component: () => import('./components/button.vue')
     }
   ]
 });
