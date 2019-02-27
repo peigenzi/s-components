@@ -1,11 +1,19 @@
+$smallH: 30px;
+$normalH: 44px;
+$largeH: 50px;
+
+@mixin loadingH($btnH) {
+  height: $btnH / 2;
+  width: $btnH / 2;
+}
+
 .s-button {
   position: relative;
   padding: 0;
   display: inline-block;
-  height: 45px;
-  line-height: 43px;
-  border-radius: 4px;
-  box-sizing: border-box;
+  height: $normalH;
+  line-height: $normalH;
+  border-radius: 2px;
   font-size: 16px;
   text-align: center;
   -webkit-appearance: none;
@@ -18,7 +26,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: inherit;
     border-color: $black;
     background-color: $black;
     border-radius: inherit;
@@ -64,8 +71,8 @@
 
   &--large {
     width: 100%;
-    height: 50px;
-    line-height: 48px;
+    height: $largeH;
+    line-height: $largeH - 2;
   }
 
   &--normal {
@@ -74,11 +81,11 @@
   }
 
   &--small {
-    height: 30px;
+    height: $smallH;
     padding: 0 8px;
     min-width: 60px;
     font-size: 12px;
-    line-height: 28px;
+    line-height: $smallH - 2;
   }
 
   &--block {
@@ -90,6 +97,20 @@
     // color: $button-disabled-color;
     // background-color: $button-disabled-background-color;
     // border: 1px solid $button-disabled-border-color;
-    opacity: .4;
+    opacity: 0.4;
+  }
+
+  &--loading {
+    .s-loading {
+      margin: 0 auto;
+    }
+
+    .s-button__text {
+      display: none;
+    }
+  }
+
+  &__loading-text {
+    margin-left: 5px;
   }
 }

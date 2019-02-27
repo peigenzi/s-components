@@ -1,0 +1,16 @@
+.s-loading {
+  position: relative;
+  top: -1px;
+  animation: s-spin 0.9s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes s-spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

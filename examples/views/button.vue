@@ -20,10 +20,20 @@
         disabled
       >禁用按钮</s-button>
     </demo-block>
+    <demo-block title="加载状态">
+      <demo-row>
+        <s-button loading></s-button>
+        <s-button
+          type="primary"
+          loading
+          loading-text="获取中..."
+        >默认型按钮</s-button>
+      </demo-row>
+    </demo-block>
     <demo-block title="按钮尺寸">
       <demo-row>
         <s-button size="small">小型按钮</s-button>
-        <s-button type="primary">默认型按钮</s-button>
+        <s-button type="primary">普通按钮</s-button>
       </demo-row>
       <s-button
         type="info"

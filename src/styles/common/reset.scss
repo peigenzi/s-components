@@ -2,8 +2,56 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
+article,
+aside,
+blockquote,
+body,
+button,
+code,
+dd,
+details,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
   margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+
+::before,::after {
+  box-sizing: border-box;
 }
 
 a {
@@ -21,8 +69,6 @@ textarea {
 
 ol,
 ul {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 

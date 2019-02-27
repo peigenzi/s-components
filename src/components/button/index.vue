@@ -10,11 +10,18 @@
       {
         's-button--disabled': disabled,
         's-button--loading': loading,
+        's-button--unclickable': loading,
         's-button--block': block
       }
     ]"
     @click="onClick"
   >
+    <s-loading
+      v-if="loading"
+      size="1.6em"
+      color="#eee"
+    ></s-loading>
+    <span v-if="loading" class="s-button__loading-text">{{loadingText}}</span>
     <span class="s-button__text">
       <slot>{{text}}</slot>
     </span>
@@ -41,7 +48,11 @@ export default {
     disabled: Boolean,
     loading: Boolean,
     block: Boolean,
-    text: String
+    text: String,
+    loadingText: {
+      type: String,
+      default: '加载中...'
+    }
   },
 
   methods: {
