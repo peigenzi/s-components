@@ -1,10 +1,8 @@
-import Hello from './components/1hello';
 import Button from './components/button';
 
 const version = '0.0.1';
 
 const components = {
-  Hello,
   Button
 };
 

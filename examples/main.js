@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './app';
-import sui, {version} from  '../dist/sui';
-import '../dist/styles/sui.css'
-import 'vue-router'
+import sui, { version } from '../dist/sui';
+import '../dist/styles/sui.css';
+import 'vue-router';
+import './components/index';
 
 Vue.use(VueRouter);
 Vue.use(sui);
@@ -14,12 +15,8 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     {
-      path: '/hello',
-      component: resolve => require(['./routers/1hello.vue'], resolve)
-    },
-    {
       path: '/button',
-      component: () => import('./components/button.vue')
+      component: () => import('./views/button.vue')
     }
   ]
 });
