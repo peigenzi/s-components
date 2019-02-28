@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "button",
+  name: "s-button",
 
   props: {
     tag: {

@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "icon",
+  name: "s-icon",
 
   props: {
     name: String,
