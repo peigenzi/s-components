@@ -7,7 +7,8 @@ const defaultOptions = {
   message: '',
   visible: true,
   duration: 3000,
-  position: 'middle'
+  position: 'middle',
+  forbidClick: false
 };
 
 const parseOptions = message =>
@@ -32,6 +33,7 @@ function createInstance() {
 }
 
 function Toast(options = {}) {
+  // 如果有 toast 显示，则返回显示的 toast
   const toast = createInstance();
 
   options = {
@@ -42,6 +44,7 @@ function Toast(options = {}) {
     }
   };
 
+  // 通过合并配置，修改 toast 状态
   Object.assign(toast, options);
   clearTimeout(toast.timer);
 
@@ -50,7 +53,7 @@ function Toast(options = {}) {
       toast.clear();
     }, options.duration);
   }
-  
+
   return toast;
 }
 
@@ -60,7 +63,8 @@ const createMethod = type => options =>
     ...parseOptions(options)
   });
 
-[('loading', 'success', 'fail')].forEach(method => {
+['loading', 'success', 'fail'].forEach(method => {
+  // 调用 $toast 相关方法时就相当于执行 createMethod
   Toast[method] = createMethod(method);
 });
 

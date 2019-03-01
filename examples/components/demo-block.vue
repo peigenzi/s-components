@@ -21,7 +21,7 @@ export default {
   font-weight: 400;
   font-size: 14px;
   color: rgba(69, 90, 100, 0.6);
-  padding: 35px 15px 15px;
+  padding: 35px 15px 15px 0;
   &:first {
     padding-top: 20px;
   }

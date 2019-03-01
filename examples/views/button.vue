@@ -38,10 +38,6 @@
       <s-button
         type="info"
         size="large"
-        @click="$toast.fail({
-          message: 'sds',
-          position: 'bottom'
-        })"
       >大型按钮</s-button>
     </demo-block>
   </demo-section>
