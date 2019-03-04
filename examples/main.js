@@ -30,6 +30,13 @@ const router = new VueRouter({
       component: () => import('./views/toast.vue')
     },
     {
+      path: '/cell',
+      meta: {
+        title: 'Cell'
+      },
+      component: () => import('./views/cell.vue')
+    },
+    {
       path: '*',
       redirect: '/button'
     }

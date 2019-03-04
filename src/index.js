@@ -2,6 +2,7 @@ import Button from './components/button';
 import Icon from './components/icon';
 import Loading from './components/loading';
 import Toast from './components/toast';
+import Cell from './components/cell';
 
 const version = '0.0.1';
 
@@ -9,7 +10,8 @@ const components = {
   Button,
   Icon,
   Loading,
-  Toast
+  Toast,
+  Cell
 };
 
 const install = function(Vue, opts = {}) {
