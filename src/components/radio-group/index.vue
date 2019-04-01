@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "s-radio-group",
+  name: 's-radio-group',
 
   props: {
     value: {},
@@ -15,7 +15,7 @@ export default {
 
   watch: {
     value(value) {
-      this.$emit("change", value);
+      this.$emit('change', value);
     }
   }
 };

@@ -43,9 +43,9 @@
 </template>
 
 <script>
-const STYLE_LIST = ["success", "fail", "loading"];
+const STYLE_LIST = ['success', 'fail', 'loading'];
 export default {
-  name: "s-toast",
+  name: 's-toast',
 
   props: {
     mask: Boolean,
@@ -53,11 +53,11 @@ export default {
     forbidClick: Boolean,
     type: {
       type: String,
-      default: "text"
+      default: 'text'
     },
     position: {
       type: String,
-      default: "middle"
+      default: 'middle'
     }
   },
 
@@ -69,7 +69,7 @@ export default {
 
   computed: {
     displayStyle() {
-      return STYLE_LIST.indexOf(this.type) !== -1 ? "default" : this.type;
+      return STYLE_LIST.indexOf(this.type) !== -1 ? 'default' : this.type;
     },
 
     hasMessage() {

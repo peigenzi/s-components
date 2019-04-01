@@ -9,17 +9,17 @@
 
 <script>
 export default {
-  name: "s-loading",
+  name: 's-loading',
 
   props: {
     type: {
       type: String,
-      default: "loading-3"
+      default: 'loading-3'
     },
     size: String,
     color: {
       type: String,
-      default: "black"
+      default: 'black'
     }
   }
 };

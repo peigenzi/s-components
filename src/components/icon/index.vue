@@ -8,14 +8,14 @@
 
 <script>
 export default {
-  name: "s-icon",
+  name: 's-icon',
 
   props: {
     name: String,
     size: String,
     color: {
       type: String,
-      default: "inherit"
+      default: 'inherit'
     }
   },
 
@@ -23,7 +23,7 @@ export default {
     style() {
       return this.size || this.color
         ? {
-            "font-size": this.size,
+            'font-size': this.size,
             color: this.color
           }
         : {};

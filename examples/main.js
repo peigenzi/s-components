@@ -37,6 +37,13 @@ const router = new VueRouter({
       component: () => import('./views/cell.vue')
     },
     {
+      path: '/radio',
+      meta: {
+        title: 'Radio'
+      },
+      component: () => import('./views/radio.vue')
+    },
+    {
       path: '*',
       redirect: '/button'
     }

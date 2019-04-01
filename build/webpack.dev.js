@@ -15,8 +15,8 @@ module.exports = merge(webpackBaseConfig, {
 
   devServer: {
     // open: true,
-    host: '192.168.1.8',
-    port: '8888',
+    host: '0.0.0.0',
+    port: '7777',
     overlay: true,
     hot: true,
     historyApiFallback: true

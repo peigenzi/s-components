@@ -42,10 +42,9 @@
     <!-- r-icon -->
     <span class="s-cell__right-icon">
       <s-icon
-      name="chevron-right"
-
-      v-if="isLink"
-    ></s-icon>
+        name="chevron-right"
+        v-if="isLink"
+      ></s-icon>
     </span>
 
   </div>
@@ -53,7 +52,7 @@
 
 <script>
 export default {
-  name: "cell",
+  name: 'cell',
 
   props: {
     icon: String,
@@ -78,14 +77,14 @@ export default {
       const { to, url, $router, replace } = this;
 
       if (to && $router) {
-        $router[replace ? "replace" : "push"](to);
+        $router[replace ? 'replace' : 'push'](to);
       } else if (url) {
         replace ? location.repalce(url) : (location.href = url);
       }
     },
 
     onClick() {
-      this.$emit("click");
+      this.$emit('click');
       this.routerLink();
     }
   }

@@ -21,7 +21,10 @@
       size="1.6em"
       color="#eee"
     ></s-loading>
-    <span v-if="loading" class="s-button__loading-text">{{loadingText}}</span>
+    <span
+      v-if="loading"
+      class="s-button__loading-text"
+    >{{loadingText}}</span>
     <span class="s-button__text">
       <slot>{{text}}</slot>
     </span>
@@ -30,20 +33,20 @@
 
 <script>
 export default {
-  name: "s-button",
+  name: 's-button',
 
   props: {
     tag: {
       type: String,
-      default: "button"
+      default: 'button'
     },
     type: {
       type: String,
-      default: "default"
+      default: 'default'
     },
     size: {
       type: String,
-      default: "normal"
+      default: 'normal'
     },
     disabled: Boolean,
     loading: Boolean,
@@ -58,7 +61,7 @@ export default {
   methods: {
     onClick(e) {
       if (!this.loading && !this.disabled) {
-        this.$emit("click", e);
+        this.$emit('click', e);
       }
     }
   }

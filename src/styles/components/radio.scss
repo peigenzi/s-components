@@ -1,13 +1,12 @@
 $s-radio-size: 20px;
 
-.s-raido {
+.s-radio {
   overflow: hidden;
   user-select: none;
 
   &__input,
   &__label {
     display: inline-block;
-    vertical-align: middle;
   }
 
   &__input {
@@ -20,14 +19,15 @@ $s-radio-size: 20px;
     top: 0;
     left: 0;
     margin: 0;
-    width: 100%;
-    height: 100%;
+    display: inline-block;
+    width: 0;
+    height: 0;
     opacity: 0;
   }
 
   &__label {
     line-height: $s-radio-size;
-    margin-left: 10px;
+    margin-left: 8px;
   }
 
   .s-icon {
@@ -35,19 +35,45 @@ $s-radio-size: 20px;
     font-size: $s-radio-size;
   }
 
-  .s-icon-checked {
-    color: $green;
+  &__icon {
+    display: inline-block;
+    width: 20px;
+    height: $s-radio-size;
+    line-height: 18px;
+    border: 1px solid #e5e5e5;
+    border-radius: 100%;
+    .s-icon {
+      // width: 20px;
+      // height: 20px;
+      width: 100%;
+      height: 100%;
+      line-height: 18px;
+      font-size: 14px;
+      color: transparent;
+      border-radius: 100%;
+      text-align: center;
+      transition: all 0.2s;
+    }
   }
 
-  .s-icon-check {
-    color: $gray-dark;
+  &__icon--checked {
+    color: #fff;
+    background-color: $blue;
+    border-radius: 100%;
   }
 
   &--disabled {
-    .s-icon {
-      color: $gray-light;
-      border-radius: 100%;
-      background-color: $background-color;
+    .s-radio__icon {
+      border-color: #c8c9cc;
+      background-color: #ebedf0;
+      color: #c8c9cc;
+      .s-icon {
+        border-radius: 100%;
+        background-color: #ebedf0;
+      }
+    }
+    .s-radio__icon--checked {
+      background-color: #ebedf0;
     }
   }
 }

@@ -3,6 +3,8 @@ import Icon from './components/icon';
 import Loading from './components/loading';
 import Toast from './components/toast';
 import Cell from './components/cell';
+import Radio from './components/radio';
+import RadioGroup from './components/radio-group';
 
 const version = '0.0.1';
 
@@ -11,7 +13,9 @@ const components = {
   Icon,
   Loading,
   Toast,
-  Cell
+  Cell,
+  Radio,
+  RadioGroup,
 };
 
 const install = function(Vue, opts = {}) {

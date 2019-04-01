@@ -1,10 +1,10 @@
 <template>
   <div
-    class="s-raido"
-    :class="{'s-raido--disabled': isDisabled}"
+    class="s-radio"
+    :class="{'s-radio--disabled': isDisabled}"
     @click="$emit('click')"
   >
-    <span s-radio__input>
+    <span class="s-radio__input">
       <input
         type="radio"
         :value="name"
@@ -12,7 +12,12 @@
         class="s-radio__control"
         :disabled="isDisabled"
       >
-      <s-icon></s-icon>
+      <span
+        class="s-radio__icon"
+        :class="currentValue === name ? 's-radio__icon--checked' : ''"
+      >
+        <s-icon :name="currentValue === name ? 'check' : ''"></s-icon>
+      </span>
     </span>
     <span
       class="s-radio__label"
@@ -24,7 +29,7 @@
 
 <script>
 export default {
-  name: "raidio",
+  name: 's-radio',
 
   props: {
     value: {},
@@ -34,7 +39,7 @@ export default {
 
   computed: {
     isGroup() {
-      return !!this.findParentGroup("s-radio-group");
+      return !!this.findParentGroup('s-radio-group');
     },
 
     currentValue: {
@@ -44,11 +49,11 @@ export default {
           : this.value;
       },
 
-      set() {
+      set(val) {
         if (this.isGroup && this.parentGroup) {
-          this.parentGroup.$emit("input", val);
+          this.parentGroup.$emit('input', val);
         } else {
-          this.$emit("input", val);
+          this.$emit('input', val);
         }
       }
     },
@@ -85,6 +90,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>
